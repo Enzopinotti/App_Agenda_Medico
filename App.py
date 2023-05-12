@@ -23,13 +23,13 @@ while True:
     elif(opcion == "b"):
         opcionB(agenda)
         borrarPantalla()
-        print("La cita fue modificada exitosamente...")
         input("Presione una tecla para continuar...")
     elif(opcion == "c"):
         opcionC(agenda)
         input("Presione una tecla para continuar")
     elif(opcion == "d"):
         opcionD(agenda)
+        input("Presione una tecla para continuar")
     elif(opcion == "e"):
         opcionE(agenda)
         input("Presiones una tecla para continuar...")
@@ -43,4 +43,4 @@ while True:
         break
     else:
         print("Opción invalida.")
-        input("Presione una tecla para continuar")
+        input("Presione una tecla para continuar...")

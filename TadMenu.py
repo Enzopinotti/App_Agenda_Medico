@@ -2,13 +2,11 @@
 
 import os
 
-""" def verMenu(): """
+# def verMenu():
+# Despliega menú en pantalla
 
-# despliega menú en pantalla
-
-""" def borrarMenu(): """
-
-# limpia el menú de la pantalla
+# def borrarMenu():
+# Limpia la pantalla
 
 def verMenu():
     print("\n" + "=" * 60)

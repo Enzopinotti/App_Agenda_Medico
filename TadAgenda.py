@@ -2,27 +2,61 @@
 from TadPaciente import *
 from TadCita import *
 
-"""ATRIBUTOS:"""
-# cita: Cita
+# def crearAgenda():
+# Crea una nueva agenda vacía.
+# Retorna: list vacía.
 
-def crearAgenda():
-    #retorna agenda vacia
-    
+# def existeCita(agenda,cita):
+# Comprueba si una cita existe en la agenda.
+# Parámetros: agenda (list), cita (Cita).
+# Retorna: bool.
+
+# def agregarCita(agenda, cita):
+# Agrega una cita a la agenda.
+# Parámetros: agenda (list), cita (Cita).
+
+# def eliminarCita(agenda):
+# Solicita el nombre y apellido del paciente y elimina su cita de la agenda.
+# Parámetro: agenda (list).
+# Retorna: bool.
+
+# def eliminarCitaPorOS(agenda, obraSocial):
+# Elimina todas las citas de la agenda que pertenezcan a una obra social específica.
+# Parámetros: agenda (list), obraSocial (str).
+# Retorna: bool.
+
+# def listarCitas(agenda):
+# Devuelve la lista de citas en la agenda.
+# Parámetro: agenda (list).
+# Retorna: list.
+
+# def tamanioAgenda(agenda):
+# Devuelve la cantidad de citas en la agenda.
+# Parámetro: agenda (list).
+# Retorna: int.
+
+# def modificarAgenda(agenda, fechaActual, fechaDestino, horaDestino):
+# Modifica todas las citas con una fecha específica a una nueva fecha y hora.
+# Parámetros: agenda (list), fechaActual (datetime), fechaDestino (datetime), horaDestino (time).
+# Retorna: bool.
+
+# def borrarCita(agenda, cita):
+# Elimina una cita específica de la agenda.
+# Parámetros: agenda (list), cita (Cita).
+
+
+
+def crearAgenda():    
     agenda=[]
     return agenda
 
 def existeCita(agenda,cita):
-    #retorna verdadero si existe la cita en la agenda
-    
     return cita in agenda
 
-def agregarCita(agenda, cita):
-    #agrega tipo Cita en Agenda
-    
+def agregarCita(agenda, cita):    
     agenda.append(cita)
 
 def eliminarCita(agenda):
-    #eliminar tipo Cita en Agenda
     nombrePaciente = input("Ingrese el nombre del paciente al que desea eliminarle la cita: ")
     apellidoPaciente = input("Ingrese el apellido del paciente al que desea elimnarle la cita: ")
     #Creo un paciente vacio para poder cargar los datos pedidos anteriormente
@@ -37,42 +71,30 @@ def eliminarCita(agenda):
 
  
 def eliminarCitaPorOS(agenda, obraSocial):
-    #eliminar tipo Cita en Agenda por obra social
     eliminadas = False
-
     for cita in agenda.copy():
         if(verObraSocial(verPaciente(cita)).lower() == obraSocial.lower()):
             borrarCita(agenda, cita)
             eliminadas = True
-            
     return eliminadas
     
 
 def listarCitas(agenda):
-    #retorna listado de citas de la agenda
-    if(tamanioAgenda(agenda) > 0):
-        return agenda
-    else:
-        print("La agenda no posee citas")       
+    return agenda       
 
 
 def tamanioAgenda(agenda): 
-    #retorna cantidad de citas que posee la agenda
-
     return len(agenda)
 
 def modificarAgenda(agenda, fechaActual, fechaDestino, horaDestino):
-    #modificar todas las citas con fechaActual a fechaDestino 
     existeFecha = False
     for cita in agenda: 
         if(verFecha(cita)==fechaActual):
             modFecha(cita, fechaDestino)
             modHora(cita, horaDestino)
             existeFecha=True
-            
     return existeFecha
 
 def borrarCita(agenda, cita):
-    #eliminar tipo Cita en Agenda
     agenda.remove(cita)
 
