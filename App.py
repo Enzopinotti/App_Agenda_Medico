@@ -32,10 +32,10 @@ while True:
         opcionD(agenda)
     elif(opcion == "e"):
         opcionE(agenda)
-        print("Las citas fueron modificadas exitosamente...")
         input("Presiones una tecla para continuar...")
     elif(opcion == "f"):
-        opcionF(agenda)            
+        opcionF(agenda) 
+        input("Presiones una tecla para continuar...")           
     elif(opcion == "g"):
         opcionG(agenda)
         input("Presiones una tecla para continuar...")
