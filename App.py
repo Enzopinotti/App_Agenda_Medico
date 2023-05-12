@@ -31,13 +31,13 @@ while True:
         input("Presione una tecla para continuar")
     elif(opcion == "e"):
         opcionE(agenda)
-        input("Presiones una tecla para continuar...")
+        input("Presione una tecla para continuar...")
     elif(opcion == "f"):
         opcionF(agenda) 
-        input("Presiones una tecla para continuar...")           
+        input("Presione una tecla para continuar...")           
     elif(opcion == "g"):
         opcionG(agenda)
-        input("Presiones una tecla para continuar...")
+        input("Presione una tecla para continuar...")
     elif(opcion == "q"):
         break
     else:

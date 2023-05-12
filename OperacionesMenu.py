@@ -149,4 +149,3 @@ def opcionG(agenda):
         print("Cuya obra social es " +verObraSocial(pacienteCita))
         print("-" * 60 + "\n")
              
-    input("Ingrese una tecla para continuar")
