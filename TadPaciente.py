@@ -4,21 +4,21 @@
 # nombre: string
 # apellido: string
 # obraSocial: string
-# dni: string
+
 
 def crearPaciente():
     #retorna paciente vacio
     
-    paciente = ["","","",""]   
+    paciente = ["","",""]   
     return paciente
 
-def cargarPaciente(paciente, nombre, apellido, obraSocial, dni):
+def cargarPaciente(paciente, nombre, apellido, obraSocial):
     # Rargar nombre, apellido y obra social del paciente
     
     paciente[0] = nombre
     paciente[1] = apellido
     paciente[2] = obraSocial 
-    paciente[3] = dni 
+    
 
 def verNombre(paciente):
     # Retorna el nombre del paciente
@@ -35,10 +35,6 @@ def verObraSocial(paciente):
 
     return paciente[2]
 
-def verDni(paciente):
-    # Retorna Dni del paciente
-
-    return paciente[3]
 
 def modNombre(paciente, nombre):
     #Cambia el nombre del paciente enviado por parametro
@@ -55,10 +51,6 @@ def modObraSocial(paciente, obraSocial):
 
     paciente[2] = obraSocial
 
-def modDni(paciente, dni):
-    #Cambia la obra social del paciente enviado por parametro
-
-    paciente[3] = dni
 
 def asignarPaciente(paciente1, paciente2):
     #Asigna el paciente1 al paciente 2

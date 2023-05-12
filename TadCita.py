@@ -45,18 +45,17 @@ def modFecha(cita, nuevaFecha):
 
 def modHora(cita, nuevaHora):
     # Modifica la hora de la cita
-    
     cita[1] = nuevaHora
 
 def modPaciente(cita, nuevoPaciente):
     # Modifica el paciente de la cita
-    
     cita[2] = nuevoPaciente
+
     
 def existePaciente(cita, paciente):
     # Retorna booleano V o F si existe una cita con el paciente indicado
     
-    if ( verNombre(cita[2]) == verNombre(paciente) and verApellido(cita[2]) == verApellido(paciente)):
+    if ( verNombre(cita[2]).lower() == verNombre(paciente).lower() and verApellido(cita[2]).lower() == verApellido(paciente).lower()):
         return True
     else:
         return False
