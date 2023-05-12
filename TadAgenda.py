@@ -35,9 +35,9 @@ from TadCita import *
 # Parámetro: agenda (list).
 # Retorna: int.
 
-# def modificarAgenda(agenda, fechaActual, fechaDestino, horaDestino):
+# def modificarAgenda(agenda, fechaActual, fechaDestino):
 # Modifica todas las citas con una fecha específica a una nueva fecha y hora.
-# Parámetros: agenda (list), fechaActual (datetime), fechaDestino (datetime), horaDestino (time).
+# Parámetros: agenda (list), fechaActual (datetime), fechaDestino (datetime).
 # Retorna: bool.
 
 # def borrarCita(agenda, cita):
@@ -86,12 +86,11 @@ def listarCitas(agenda):
 def tamanioAgenda(agenda): 
     return len(agenda)
 
-def modificarAgenda(agenda, fechaActual, fechaDestino, horaDestino):
+def modificarAgenda(agenda, fechaActual, fechaDestino):
     existeFecha = False
     for cita in agenda: 
         if(verFecha(cita)==fechaActual):
             modFecha(cita, fechaDestino)
-            modHora(cita, horaDestino)
             existeFecha=True
     return existeFecha
 

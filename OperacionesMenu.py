@@ -35,6 +35,8 @@ def opcionA(agenda):
     #cargo la cita en la agenda
 
     agregarCita(agenda, cita)
+    print("La cita fue agregada exitosamente...")
+
 
 def opcionB(agenda):
     #Pido los datos del paciente a modificar
@@ -59,12 +61,14 @@ def opcionB(agenda):
         else:
             print("El paciente no tiene citas asignadas...")
 
+
 def opcionC(agenda):
     eliminada = eliminarCita(agenda)
     if(eliminada):
         print("La cita fue eliminada correctamente.")
     else:
         print("El paciente no tiene citas asignadas.")
+
 
 def opcionD(agenda):
     citasParaListar = listarCitas(agenda)
@@ -80,6 +84,7 @@ def opcionD(agenda):
         print("Posee una cita el dia " +verDia(verFecha(cita))+"-"+verMes(verFecha(cita))+" a las "+verHora(verHorario(cita))+":"+verMinuto(verHorario(cita))+"hs.")
         print("-" * 60 + "\n")
 
+
 def opcionE(agenda):
     #primero ingreso la fecha que quiero modificar
     diaActual = int(input("Ingrese el dia de la fecha que desea modificar: "))
@@ -91,15 +96,14 @@ def opcionE(agenda):
     mesDestino = int(input("Ingrese el mes de la fecha a la que desea correr sus citas: "))
     anioDestino = int(input("Ingrese el año de la fecha a la que desea correr sus citas: "))
     nuevaFecha = crearFecha(anioDestino,mesDestino,diaDestino)
-    horaDestino = int(input("Ingrese la nueva hora para la cita: "))
-    minutoDestino = int(input("Ingrese minutos para la nueva cita: "))
-    nuevoHorario = crearHorario(horaDestino,minutoDestino)
+
     #modifico todas las citas con la fecha actual a la nueva fecha
-    existeFecha = modificarAgenda(agenda, fechaActual, nuevaFecha, nuevoHorario)
+    existeFecha = modificarAgenda(agenda, fechaActual, nuevaFecha)
     if(existeFecha):
         print("Las citas fueron modificadas correctamente")
     else:
         print("No hay citas para la fecha indicada.")
+
 
 def opcionF(agenda):
     #primero pido la obra social para eliminar la cita
@@ -109,6 +113,7 @@ def opcionF(agenda):
         print("Las citas de la obra social " +obraSocial+" fueron eliminadas correctamente.")
     else:
         print("No existen citas con esa obra social...")
+
 
 def opcionG(agenda):
     #primero creo una cola vacia

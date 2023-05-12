@@ -18,7 +18,6 @@ while True:
     if(opcion == "a"):
         opcionA(agenda)
         borrarPantalla()
-        print("La cita fue agregada exitosamente...")
         input("Presione una tecla para continuar...")
     elif(opcion == "b"):
         opcionB(agenda)
