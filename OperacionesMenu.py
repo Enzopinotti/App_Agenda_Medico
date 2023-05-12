@@ -112,6 +112,10 @@ def opcionF(agenda):
 
 def opcionG(agenda):
     #primero creo una cola vacia
+    if(tamanioAgenda(agenda) == 0):
+        print("La agenda no posee citas.")
+        return
+    
     cola = crearCola()
     #luego pido la fecha para la cual quiero generar la cola
     diaFecha = int(input("Ingrese el dia de la fecha que desea generar la cola (1-31): "))
@@ -120,6 +124,7 @@ def opcionG(agenda):
 
     fecha = crearFecha(anioFecha,mesFecha,diaFecha)
     #genero la cola con la fecha ingresada
+
 
     for cita in agenda:
         if(verFecha(cita) == fecha):
