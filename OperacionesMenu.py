@@ -2,6 +2,7 @@ from TadAgenda import *
 from TadCita import *
 from TadPaciente import *
 from TadCola import *
+from TadMenu import *
 
 def opcionA(agenda):
     #Primero creo el paciente vacio
@@ -70,14 +71,18 @@ def opcionE(agenda):
     nuevaFecha = input("Ingrese la nueva fecha: ")
     nuevaHora = input("Ingrese la nueva hora: ")
     #modifico todas las citas con la fecha actual a la nueva fecha
-    modificarAgenda(agenda, fechaActual, nuevaFecha, nuevaHora)
+    existeFecha = modificarAgenda(agenda, fechaActual, nuevaFecha, nuevaHora)
+    if(existeFecha):
+        print("Las citas fueron modificadas correctamente")
+    else:
+        print("No hay citas para la fecha indicada.")
 
 def opcionF(agenda):
     #primero pido la obra social para eliminar la cita
     obraSocial = input("Ingrese la obra social de la cita que desea eliminar: ")
     eliminadas = eliminarCitaPorOS(agenda, obraSocial)
     if(eliminadas):
-        print("Las citas fueron eliminadas exitosamente...")
+        print("Las citas de la obra social " + obraSocial+" fueron eliminadas correctamente.")
     else:
         print("No existen citas con esa obra social...")
 
@@ -92,9 +97,14 @@ def opcionG(agenda):
         if(verFecha(cita) == fecha):
             encolarElemento(cola, cita)
 
+    if(esVacia(cola)):
+        print("No hay citas para la fecha indicada.")
+        return
+
     colaCitas = listarCitas(cola)
-    
-    print("Turnos registrados para la fecha: " + fecha)
+    borrarPantalla()
+    print("-" * 60 )
+    print("Turnos registrados para la fecha: " + fecha + "\n")
     for cita in colaCitas:
         pacienteCita = verPaciente(cita)
         print("El paciente llamado: "+verNombre(pacienteCita) +" "+ verApellido(pacienteCita))
