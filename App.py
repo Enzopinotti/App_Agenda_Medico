@@ -1,4 +1,3 @@
-from TadMenu import *
 from TadAgenda import *
 from TadCita import *
 from TadPaciente import * 
