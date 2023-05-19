@@ -2,6 +2,7 @@ from TadAgenda import *
 from TadCita import *
 from TadPaciente import *
 from TadCola import *
+from Validaciones import *
 import os
 
 def verMenu():
@@ -31,8 +32,23 @@ def opcionA(agenda):
 
     #Luego cargo los datos del paciente
     nombrePaciente = input("Ingrese el nombre del paciente: ")
+    while not validarNombreApellido(nombrePaciente):
+        borrarPantalla()
+        print("El nombre ingresado no es válido. Por favor, inténtelo de nuevo.")
+        nombrePaciente = input("Ingrese el nombre del paciente: ")
+
     apellidoPaciente = input("Ingrese el apellido del paciente: ")
+    while not validarNombreApellido(nombrePaciente):
+        borrarPantalla()
+        print("El apellido ingresado no es válido. Por favor, inténtelo de nuevo.")
+        nombrePaciente = input("Ingrese el apellido del paciente: ")
+
     obraSocialPaciente = input("Ingrese la obra social del paciente: ")
+    while not validarObraSocial(obraSocialPaciente):
+        borrarPantalla()
+        print("La obra social ingresada no es válida. Por favor, inténtelo de nuevo.")
+        obraSocialPaciente = input("Ingrese la obra social del paciente: ")
+
     
     cargarPaciente(paciente, nombrePaciente, apellidoPaciente, obraSocialPaciente)
 
