@@ -20,7 +20,6 @@ while True:
         input("Presione una tecla para continuar...")
     elif(opcion == "b"):
         opcionB(agenda)
-        borrarPantalla()
         input("Presione una tecla para continuar...")
     elif(opcion == "c"):
         opcionC(agenda)

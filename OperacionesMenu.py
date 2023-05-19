@@ -109,15 +109,18 @@ def opcionB(agenda):
     apellidoPaciente = input("Ingrese el apellido del paciente al que desea modificarle la cita: ")
     while not validarNombreApellido(apellidoPaciente):
         borrarPantalla()
-        print("El appellido ingresado no es válido. Por favor, inténtelo de nuevo.")
+        print("El apellido ingresado no es válido. Por favor, inténtelo de nuevo.")
         nombrePaciente = input("Ingrese el apellido del paciente: ")
 
     #Creo un paciente vacio para poder cargar los datos pedidos anteriormente
     pacienteAuxiliar = crearPaciente()
     cargarPaciente(pacienteAuxiliar, nombrePaciente, apellidoPaciente, "")
 
+    existeCita = False
+
     for cita in agenda:
         if(existePaciente(cita, pacienteAuxiliar)):
+            existeCita = True
             nuevoDia = input("Ingrese el nuevo dia (1-31): ")
             while not validarDia(nuevoDia):
                 borrarPantalla()
@@ -157,9 +160,11 @@ def opcionB(agenda):
 
             nuevoHorario = crearHorario(nuevaHora, nuevoMinuto)
             modHora(cita,nuevoHorario)
+
         else:
             print("El paciente no tiene citas asignadas...")
-
+    if(existeCita == False):
+        print("El paciente ingresado no posee citas agendadas.")
 
 def opcionC(agenda):
     nombrePaciente = input("Ingrese el nombre del paciente al que desea eliminarle la cita: ")
@@ -306,9 +311,11 @@ def opcionG(agenda):
     borrarPantalla()
     print("-" * 60 )
     print("Turnos registrados para la fecha: " + verAnio(fecha)+"-"+verMes(fecha)+"-"+verDia(fecha)+ "\n")
+    print("-" * 60 + "\n")
+    print("-" * 60 + "\n")
     for cita in colaCitas:
         pacienteCita = verPaciente(cita)
-        print("El paciente llamado: "+verNombre(pacienteCita) +" "+ verApellido(pacienteCita))
-        print("Cuya obra social es " +verObraSocial(pacienteCita))
+        print("Paciente: "+verNombre(pacienteCita) +" "+ verApellido(pacienteCita))
+        print("Obra social: " +verObraSocial(pacienteCita))
         print("-" * 60 + "\n")
              
