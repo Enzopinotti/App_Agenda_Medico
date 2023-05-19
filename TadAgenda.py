@@ -56,9 +56,8 @@ def existeCita(agenda,cita):
 def agregarCita(agenda, cita):    
     agenda.append(cita)
 
-def eliminarCita(agenda):
-    nombrePaciente = input("Ingrese el nombre del paciente al que desea eliminarle la cita: ")
-    apellidoPaciente = input("Ingrese el apellido del paciente al que desea elimnarle la cita: ")
+def eliminarCita(agenda, nombrePaciente, apellidoPaciente):
+    
     #Creo un paciente vacio para poder cargar los datos pedidos anteriormente
     pacienteAuxiliar = crearPaciente()
     cargarPaciente(pacienteAuxiliar, nombrePaciente, apellidoPaciente, "")
