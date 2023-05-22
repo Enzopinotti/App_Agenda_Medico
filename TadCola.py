@@ -1,32 +1,37 @@
 """ TAD COLA """
 
+# def crearCola():
+# Crea una cola vacía.
+# Retorna: list.
+
+# def esVacia(cola):
+# Comprueba si una cola está vacía.
+# Retorna: bool.
+
+# def encolarElemento(cola, cita):
+# Agrega un elemento al final de la cola.
+
+# def desencolar(cola):
+# Elimina el primer elemento de la cola.
+
+# def tamanioCola(cola):
+# Devuelve la cantidad de elementos en la cola.
+# Retorna: int.
+
+
 def crearCola(): 
-
-#    retorna una cola vacia (FIFO)
-
     cola=[]
     return cola
 
 def esVacia(cola):
-
-#   retorna "true" si la cola actual está vacia
-    
     return (len(cola)==0) 
 
 def encolarElemento(cola, cita):
-    #Encola una cita a la cola del día
-
     cola.append(cita)
 
 def desencolar(cola):
-
-    #desencola una cita de la cola del día
-
     cola.pop()
 
 def tamanioCola(cola):
-
-#   retorna el tamaño actual de la cola
-
     return len(cola)
 

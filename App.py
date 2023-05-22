@@ -1,4 +1,3 @@
-from TadMenu import *
 from TadAgenda import *
 from TadCita import *
 from TadPaciente import * 
@@ -18,29 +17,27 @@ while True:
     if(opcion == "a"):
         opcionA(agenda)
         borrarPantalla()
-        print("La cita fue agregada exitosamente...")
         input("Presione una tecla para continuar...")
     elif(opcion == "b"):
         opcionB(agenda)
-        borrarPantalla()
-        print("La cita fue modificada exitosamente...")
         input("Presione una tecla para continuar...")
     elif(opcion == "c"):
         opcionC(agenda)
         input("Presione una tecla para continuar")
     elif(opcion == "d"):
         opcionD(agenda)
+        input("Presione una tecla para continuar")
     elif(opcion == "e"):
         opcionE(agenda)
-        input("Presiones una tecla para continuar...")
+        input("Presione una tecla para continuar...")
     elif(opcion == "f"):
         opcionF(agenda) 
-        input("Presiones una tecla para continuar...")           
+        input("Presione una tecla para continuar...")           
     elif(opcion == "g"):
         opcionG(agenda)
-        input("Presiones una tecla para continuar...")
+        input("Presione una tecla para continuar...")
     elif(opcion == "q"):
         break
     else:
         print("Opción invalida.")
-        input("Presione una tecla para continuar")
+        input("Presione una tecla para continuar...")
