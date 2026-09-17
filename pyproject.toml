@@ -1,0 +1,13 @@
+[project]
+name = "agenda-medica-tad"
+version = "2026.1.0"
+description = "Modernización mantenida del ejercicio académico Agenda Médica"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+agenda-medica = "agenda_medica.cli:ejecutar"
+
+[tool.agenda-medica]
+source-authority = "modern/agenda_medica"
+historical-baseline = "390ac3591b089e0aefd6dc5f971c3e8d22e57794"
