@@ -1,0 +1,62 @@
+name: Python quality
+
+on:
+  pull_request:
+    paths:
+      - "modern/**"
+      - "README.md"
+      - "readme.md"
+      - "pyproject.toml"
+      - ".gitignore"
+      - ".github/workflows/python-quality.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "modern/**"
+      - "README.md"
+      - "readme.md"
+      - "pyproject.toml"
+      - ".gitignore"
+      - ".github/workflows/python-quality.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13", "3.14"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Reject tracked generated Python artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git ls-files | grep -E '(^|/)__pycache__/|\.py[co]$'; then
+            echo 'Generated Python cache artifacts must not be tracked.' >&2
+            exit 1
+          fi
+
+      - name: Compile maintained authority
+        run: python -m compileall -q modern
+
+      - name: Run standard-library test suite
+        env:
+          PYTHONPATH: modern
+        run: python -m unittest discover -s modern/tests -v
